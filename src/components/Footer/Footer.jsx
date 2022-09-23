@@ -46,16 +46,16 @@ const Footer = () => {
           <h2>Stay in touch with us</h2>
           <div className="socials">
             <a href="/">
-              <img src="/images/socials/facebook.png" alt="" />
+              <img src="https://res.cloudinary.com/dzevej4xd/image/upload/v1663737264/images/socials/facebook_ukpiap.png" alt="" />
             </a>
             <a href="/">
-              <img src="/images/socials/instagram.png" alt="" />
+              <img src="https://res.cloudinary.com/dzevej4xd/image/upload/v1663737265/images/socials/instagram_k4b1qj.png" alt="" />
             </a>
             <a href="/">
-              <img src="/images/socials/youtube.png" alt="" />
+              <img src="https://res.cloudinary.com/dzevej4xd/image/upload/v1663737264/images/socials/youtube_xwt7ar.png" alt="" />
             </a>
             <a href="/">
-              <img src="/images/socials/twitter.png" alt="" />
+              <img src="https://res.cloudinary.com/dzevej4xd/image/upload/v1663737264/images/socials/twitter_bgivfo.png" alt="" />
             </a>
           </div>
         </div>
