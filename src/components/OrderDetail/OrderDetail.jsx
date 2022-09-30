@@ -41,10 +41,10 @@ const OrderDetail = () => {
     const fetchOrder = async () =>{
       try{
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`api/orders/${orderId}`, {
+        const { data } = await axios.get(`/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}`},
         });
-        dispatch({ type: 'FETCH_SUCCESS', payload: data});
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
       }
       catch(err){
         dispatch({ type: 'FETCH_FAIL', payload: getError(err)});
@@ -61,7 +61,7 @@ const OrderDetail = () => {
   }, [order, userInfo, orderId, navigate]);
 
   return (
-    loading ? <LoadingBox></LoadingBox> : error ? <MessageBox></MessageBox> :
+    loading ? ( <LoadingBox></LoadingBox> ): error ? <MessageBox></MessageBox> :(
     <>
       <Navbar/>
       <div className="order-details-container">
@@ -82,11 +82,10 @@ const OrderDetail = () => {
                   {order.shippingAddress.postalCode}
                   {order.shippingAddress.city}
                   {order.shippingAddress.country}
-                  <Link to="/shipping"><FontAwesomeIcon icon={faPencil}/>Edit</Link>
                 </div>
                 <div className="order-payment">
-                  <h4>Payment:</h4>
-                  <span>{order.paymentMethod}</span>
+                  <h4>Payment:</h4><br/>
+                  <span className='after'>* you will pay after delivery</span>
                 </div>
                 <div className="order-items">
                   <h4 className="order-items-title">
@@ -131,7 +130,7 @@ const OrderDetail = () => {
         </div>
       </div>
       <Footer/>
-    </>
+    </>)
   )
 };
 
