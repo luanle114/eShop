@@ -56,7 +56,7 @@ const Cart = () => {
                     <div className="cart-body">
                       <Link to={`/product/${item.slug}`}>{item.title}</Link>
                       <div className="buttons">
-                        <button onClick={() => updateCartHandler(item, item.quantity + 1 )}  disabled={item.quantity === 1}><FontAwesomeIcon icon={faMinusCircle}/></button>{' '}
+                        <button onClick={() => updateCartHandler(item, item.quantity - 1 )}  disabled={item.quantity === 1}><FontAwesomeIcon icon={faMinusCircle}/></button>{' '}
                         <span className="cart-quantity">{item.quantity}</span>{' '}
                         <button onClick={() => updateCartHandler(item, item.quantity + 1 )} disabled={item.quantity === item.countInStock}><FontAwesomeIcon icon={faPlusCircle}/></button>
                       </div>
