@@ -68,61 +68,62 @@ const OrderDetail = () => {
             <h2 className='order-details-title'>Your Order</h2>
             <h4 className="order-details-subtitle">Order ID: {orderId}</h4>
           </div>
-          <div className="order-row">
-            <div className="order-col">
-              <div className="order-shipping">
-                <h4 className="order-shipping-title">
-                  Shipping: 
+        </div>
+        <div className="order-row">
+          <div className="order-col">
+            <div className="order-shipping">
+              <h4 className="order-shipping-title">
+                Shipping: 
+              </h4>
+              <div className="order-shipping-info">
+                {order.shippingAddress.fullname}
+                {order.shippingAddress.address}
+                {order.shippingAddress.postalCode}
+                {order.shippingAddress.city}
+                {order.shippingAddress.country}
+                {order.isPaid ? (<span>Paid at {order.deliveredAt}</span>) : <span>Not Delivery</span> }
+              </div>
+              <div className="order-payment">
+                <h4>Payment:</h4>
+                {order.isPaid ? (<span>Paid at {order.paidAt}</span>) : <span>Not Paid<br/><span className='after'>* you will pay after delivery</span></span> }
+              </div>
+              <div className="order-items">
+                <h4 className="order-items-title">
+                  Order Items: 
                 </h4>
-                <div className="order-shipping-info">
-                  {order.shippingAddress.fullname}
-                  {order.shippingAddress.address}
-                  {order.shippingAddress.postalCode}
-                  {order.shippingAddress.city}
-                  {order.shippingAddress.country}
-                </div>
-                <div className="order-payment">
-                  <h4>Payment:</h4><br/>
-                  <span className='after'>* you will pay after delivery</span>
-                </div>
-                <div className="order-items">
-                  <h4 className="order-items-title">
-                    Order Items: 
-                  </h4>
-                  <div className="order-cards">
-                    {order.orderItems.map((item) => (
-                      <div className="order-card">
-                        <div className="order-card-body">
-                          <img src={item.image} alt={item.title} />
-                        </div>
-                        <div className="order-card-footer">
-                          <span>{item.quantity}</span>
-                          <span>${item.price}</span>
-                        </div>
+                <div className="order-cards">
+                  {order.orderItems.map((item) => (
+                    <div className="order-card">
+                      <div className="order-card-body">
+                        <img src={item.image} alt={item.title} />
                       </div>
-                    ))}  
-                  </div>
+                      <div className="order-card-footer">
+                        <span>{item.quantity}</span>
+                        <span>${item.price}</span>
+                      </div>
+                    </div>
+                  ))}  
                 </div>
               </div>
             </div>
-            <div className="order-col">
-              <h2 className="order-summary">Order Summary</h2>
-              <div className="order-summary-info">
-                <h4>Items</h4>
-                <span>${order.itemsPrice.toFixed(2)}</span>
-              </div>
-              <div className="order-summary-info">
-                <h4>Shipping</h4>
-                <span>${order.shippingPrice.toFixed(2)}</span>
-              </div>
-              <div className="order-summary-info">
-                <h4>Tax</h4>
-                <span>${order.taxPrice.toFixed(2)}</span>
-              </div>
-              <div className="order-summary-info">
-                <h4>Totla</h4>
-                <span>${order.totalPrice.toFixed(2)}</span>
-              </div>
+          </div>
+          <div className="order-col">
+            <h2 className="order-summary">Order Summary</h2>
+            <div className="order-summary-info">
+              <h4>Items</h4>
+              <span>${order.itemsPrice.toFixed(2)}</span>
+            </div>
+            <div className="order-summary-info">
+              <h4>Shipping</h4>
+              <span>${order.shippingPrice.toFixed(2)}</span>
+            </div>
+            <div className="order-summary-info">
+              <h4>Tax</h4>
+              <span>${order.taxPrice.toFixed(2)}</span>
+            </div>
+            <div className="order-summary-info">
+              <h4>Totla</h4>
+              <span>${order.totalPrice.toFixed(2)}</span>
             </div>
           </div>
         </div>
